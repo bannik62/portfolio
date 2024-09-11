@@ -115,8 +115,8 @@ body {
         transform: scaleX(29);
     }
     100%{
-        transform: scaleX(29)  scaleY(2.5); 
-        top:420px;
+        transform: scaleX(29)  scaleY(2); 
+        top:520px;
 
     }
 }
