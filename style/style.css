@@ -98,11 +98,13 @@ body {
     top:220px;
     left:10px;
 }
+#arrow{
+    filter: invert(1); 
 
+}
 .arrow{ 
     font-size: 4rem; 
     color: black;   
-    filter: invert(1); 
     display: inline-block; 
     transform: scaleX(1.5); 
     animation: scaleAnimation 2s ease-in-out forwards; 
@@ -120,6 +122,18 @@ body {
 
     }
 }
+
+.moi{
+    animation: moi 924ms  ease-out;
+  }
+  
+  @keyframes moi {
+    to {
+      transform: translate(5px, 69px);
+    }
+  }
+  
+
 
 ul {
     list-style: none;
