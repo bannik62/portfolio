@@ -69,6 +69,7 @@ body {
 
 }
 .sectionSnap.one h2 {
+    flex-direction: column;
     width: 100%;
     /* position: absolute; */
     font-family: 'MyFont', sans-serif;
@@ -77,12 +78,10 @@ body {
     color: white;
     font-weight: bold;
     background: linear-gradient(to bottom, rgb(65, 77, 85) 10%, #ffffff 90%);
-    /* Dégradé du noir en haut au blanc en bas */
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
-    text-fill-color: transparent;
-    /* Applique le flou d'arrière-plan */
+    /* text-fill-color: transparent; */
     padding-left: 30px;
     padding-top: 30px;
 }
@@ -93,7 +92,35 @@ body {
     left: 849px;
 }
 
-/* From Uiverse.io by Zameerahmad01 */
+.containerArrow{
+    width: auto;
+    position: absolute;
+    top:220px;
+    left:10px;
+}
+
+.arrow{ 
+    font-size: 4rem; 
+    color: black;   
+    filter: invert(1); 
+    display: inline-block; 
+    transform: scaleX(1.5); 
+    animation: scaleAnimation 2s ease-in-out forwards; 
+}
+@keyframes scaleAnimation {
+    0% {
+        transform: scaleX(2.5); 
+    }
+    50% {
+        transform: scaleX(29);
+    }
+    100%{
+        transform: scaleX(29)  scaleY(2.5); 
+        top:420px;
+
+    }
+}
+
 ul {
     list-style: none;
 }
