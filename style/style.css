@@ -73,7 +73,7 @@ body {
     width: 100%;
     /* position: absolute; */
     font-family: 'MyFont', sans-serif;
-    font-size: 24rem;
+    /* font-size: 24rem; */
     letter-spacing: 20px;
     color: white;
     font-weight: bold;
@@ -84,22 +84,27 @@ body {
     /* text-fill-color: transparent; */
     padding-left: 30px;
     padding-top: 30px;
+    font-size: clamp(1rem, 26vw, 28rem);
 }
 
 .sectionSnap.one h1 {
-    position: absolute;
+    position: fixed;
     top: 155px;
-    left: 849px;
+    /* left: 89px; */
+    font-size: clamp(1rem, 10vw, 28rem);
+
 }
 
 .containerArrow{
     width: auto;
-    position: absolute;
-    top:220px;
+    position: fixed;
+    top:250px;
     left:10px;
 }
 #arrow{
-    filter: invert(1); 
+     aspect-ratio: 16/9;
+   filter: invert(1); 
+    font-size: clamp(1rem, 4vw, 28rem);
 
 }
 .arrow{ 
@@ -112,24 +117,30 @@ body {
 @keyframes scaleAnimation {
     0% {
         transform: scaleX(2.5); 
+        top:auto
     }
     50% {
         transform: scaleX(29);
+        top:500px;
+
     }
     100%{
         transform: scaleX(29)  scaleY(2); 
-        top:520px;
+        top:600px;
+        aspect-ratio: 16/9;
+
 
     }
 }
 
 .moi{
-    animation: moi 924ms  ease-out;
+    /* left: 750px; */
+    animation: moi 924ms  ease-out forwards;
   }
   
   @keyframes moi {
     to {
-      transform: translate(5px, 69px);
+      transform: translate(5px, 169px);
     }
   }
   
