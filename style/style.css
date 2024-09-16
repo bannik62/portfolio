@@ -48,14 +48,14 @@ body {
 .sectionSnap.one {
     position: relative;
     display: flex;
+    flex-direction: column;
+    justify-items: center;
     width: 100%;
     height: 100%;
     background-image: url(../img/fond.webp);
     background-clip: border-box;
     background-size: cover;
     background-position: center;
-    background-clip: border-box;
-    background-size: cover;
 }
 
 .content {
@@ -68,6 +68,7 @@ body {
 
 
 }
+
 .sectionSnap.one h2 {
     flex-direction: column;
     width: 100%;
@@ -84,66 +85,154 @@ body {
     /* text-fill-color: transparent; */
     padding-left: 30px;
     padding-top: 30px;
-    font-size: clamp(1rem, 26vw, 28rem);
+    font-size: clamp(0.5rem, 25vw, 28vw);
 }
 
 .sectionSnap.one h1 {
-    position: fixed;
-    top: 155px;
+    /* top: 155px; */
     /* left: 89px; */
     font-size: clamp(1rem, 10vw, 28rem);
 
 }
 
-.containerArrow{
+.containerArrow {
     width: auto;
     position: fixed;
-    top:250px;
-    left:10px;
+    top: 75%;
+    left: 10px;
 }
-#arrow{
-     aspect-ratio: 16/9;
-   filter: invert(1); 
+
+#arrow {
+    aspect-ratio: 16/9;
+    filter: invert(1);
     font-size: clamp(1rem, 4vw, 28rem);
 
 }
-.arrow{ 
-    font-size: 4rem; 
-    color: black;   
-    display: inline-block; 
-    transform: scaleX(1.5); 
-    animation: scaleAnimation 2s ease-in-out forwards; 
+
+.arrow {
+    font-size: 4rem;
+    color: black;
+    display: inline-block;
+    /* transform: scaleX(1.5); */
+    animation: scaleAnimation 2s ease-in-out forwards;
 }
+
 @keyframes scaleAnimation {
     0% {
-        transform: scaleX(2.5); 
-        top:auto
+        transform: scaleX(2.5);
+        top: auto
     }
+
     50% {
         transform: scaleX(29);
-        top:500px;
+        top: auto;
 
     }
-    100%{
-        transform: scaleX(29)  scaleY(2); 
-        top:600px;
+
+    100% {
+        transform: scaleX(28) scaleY(2);
+        top: auto;
         aspect-ratio: 16/9;
 
 
     }
 }
 
-.moi{
-    /* left: 750px; */
-    animation: moi 924ms  ease-out forwards;
-  }
-  
-  @keyframes moi {
-    to {
-      transform: translate(5px, 169px);
+.moi {
+    /* background-color: white; */
+    position: absolute;
+    /* transform-origin: left bottom; */
+    /* top: 50%; */
+    animation: balancier 2s ease-out forwards, descente-et-disparition 0.3s 5s ease-out forwards;
+}
+
+@keyframes balancier {
+    0% {
+        transform-origin: left bottom;
+        border: solid 5px black;
+        border-radius: 15px;
+        transform: rotate(0deg), scale(1.5);
+        /* Départ sans rotation */
+        /* left: 17%; */
+        top: 200px;
+        /* Position stable au début */
     }
+
+    10% {
+        transform: rotate(135deg);
+        border: solid 7px black;
+    }
+
+    25% {
+        transform: rotate(140deg);
+        border: solid 10px black;
+    }
+
+    40% {
+        transform: rotate(140deg);
+        border: solid 12px black;
+
+    }
+
+    55% {
+        transform: rotate(140deg);
+        background-color: #fff;
+        border: solid 15px black;
+
+    }
+
+    70% {
+        transform: rotate(140deg);
+        background-color: #fff;
+        border: solid 17px rgb(223, 152, 152);;
+font-size: medium;
+    }
+
+    85% {
+        transform: rotate(92deg);
+        /* background-color: #fff; */
+        border: solid 20px rgb(223, 152, 152);;
+
+    }
+
+    100% {
+        border: solid 19px rgb(223, 152, 152);
+        transform: rotate(90deg);
+        background-color: #4d4d4d;
+        color: #4d4d4d;
+        width: 200px;
+        clip-path: polygon(0 100%, 100% 51%, 0 0);
+        /* Stabilisation finale */
+        top: 130px;
+        /* height: 200px; */
+        /* Garde la même hauteur */
+    }
+}
+
+moi::before {
+    content: 'Texte ajouté avant le contenu existant ';
+    color: red;
   }
-  
+
+@keyframes descente-et-disparition {
+    0% {
+        /* font-size: clamp(0.5rem, 10vw, 28vw); */
+
+        top: 170px;
+        opacity: 1;
+    }
+
+    100% {
+        top: 1100Px;
+        /* Descente à une position plus basse */
+        opacity: 1;
+        /* Disparition progressive */
+        /* display: none; */
+        z-index: -5;
+    }
+}
+
+
 
 
 ul {
@@ -254,7 +343,67 @@ ul {
     background-color: #ff0000;
 }
 
-.presentation{
-
+.presentationMoi {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    top: 50%;
+    width: 80%;
+    height: 450px;
+    border: 4px solid rgb(223, 152, 152);
+    border-radius: 10px;
+    background-color: #4d4d4d;
+    opacity: 0;
 
 }
+
+.presentation {
+    width: 90%;
+    height: 90%;
+    background-color: #fff;
+}
+
+.opacityContainerP {
+    animation: fadein 2s ease-out forwards;
+}
+
+@keyframes fadein {
+    0% {
+        opacity: 0;
+        /* transform: translateX(-50%) translateY(20px);  */
+    }
+
+    100% {
+        opacity: 1;
+        /* transform: translateX(-50%) translateY(0);  */
+    }
+}
+
+.sectionSnap.two{
+    overflow-x: auto; /* Scroll horizontal activé uniquement ici */
+
+    background-image: url(../img/container2.jpg);
+    background-repeat: no-repeat;
+    background-clip: border-box;
+    background-size: cover;
+    background-position: center;
+}
+
+
+
+
+
+
+.three {
+    display: flex;
+    overflow-y: hidden;
+    width: 200vh; /* Largeur plus grande qui force le scroll horizontal */
+    background-color: lightcoral;
+  }
+
+  .chil1Horizontal, .chil1Horizontal{
+width: 100vh;
+height: 50vh;
+border: 2px solid black;
+  }

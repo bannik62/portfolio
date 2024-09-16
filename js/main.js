@@ -6,11 +6,13 @@ document.addEventListener('DOMContentLoaded', function () {
 
     // Ajoute l'ID 'moi' à l'élément
     h1Moi.id = "moi"
-    h1Moi.textContent = 'MOI !';
-    h1Moi.style.left = '850px';
+    h1Moi.textContent = 'MOI !!';
+    h1Moi.style.right = '15%';
+    h1Moi.style.top = '52%';
+
     console.log(h1Moi.style.right);
 
-    h1Moi.style.top = '200px';
+    // h1Moi.style.top = '200px';
     h1Moi.style.position = 'absolute'; // Position fixe par rapport à la fenêtre
 
 
@@ -34,43 +36,21 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log(moi);
         setTimeout(() => {
             moi.classList.add("moi")
-        }, 4000);
+        }, 2000);
     }
     moi()
 
 
-
-    function adjustElementPosition() {
-        let element = document.querySelector('#moi');
-        // console.log("element", element);
-        
-        let initialLeft =  600
-        let elementRect = element.getBoundingClientRect(); // Position actuelle de l'élément
-        let screenWidth = window.innerWidth; // Largeur actuelle de la fenêtre
-       let newLeft
-      
-       if (newLeft > initialLeft) {
-             newLeft = initialLeft + (screenWidth - elementRect.width) / 1000;
-
-            element.style.left = newLeft + 'px';
-            newLeft = Math.trunc(newLeft);
-
-        } else if (newLeft < initialLeft){
-            console.log("petit");
-             newLeft = initialLeft - (screenWidth - elementRect.width) / 1000;
-            newLeft = Math.trunc(newLeft);
-
-            element.style.left = newLeft + 'px';
-            console.log("initial :", initialLeft);
-            console.log("new :", newLeft);
-
-        }
-
-        // Appliquer la nouvelle valeur
+    function displayPresentation() {
+        const containerP = document.querySelector(".presentationMoi")
+        console.log(containerP);
+       
+        setTimeout(() => {
+            containerP.classList.add("opacityContainerP")
+        }, 4000);
     }
+    displayPresentation()
 
-    // Appeler la fonction au chargement de la page et lors du redimensionnement de la fenêtre
-    // window.addEventListener('load', adjustElementPosition);
-    window.addEventListener('resize', adjustElementPosition);
+
 
 })
