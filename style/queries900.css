@@ -1,0 +1,125 @@
+
+@media (width <= 900px){
+    .vertical-container  .section.secOne.white {
+     position: relative;
+     height: 100vh;
+     width: 100vw;
+     display: flex;
+     justify-content: flex-start;
+     background-image: url(../img/fond.webp);
+     background-size: cover;
+     background-position: center;
+     background-repeat: no-repeat;
+     }
+     body > div.vertical-container > section.section.secOne.white > div{
+         display: flex;
+             justify-content: space-around;
+             align-items: center;
+             flex-wrap: wrap;
+             width: 100%;
+             background-color: rgba(6, 5, 5, 0.269);
+             backdrop-filter: blur(1px);
+ 
+     }
+ 
+     .vertical-container .secOne .content-section-one .construct1 {
+         margin: 10px 0 20px 0;
+         padding-top: 0px;
+         position: relative;
+         min-width: 40%;
+         display: flex;
+         /* align-items: center; */
+         justify-content: space-around;
+         flex-wrap: wrap;
+         width: 80%;
+         height: 90%;
+         border: 1px solid rgb(20, 19, 19);
+         background-color: rgb(0 0 0);
+
+         
+     }
+   
+     body > div.vertical-container > section.section.secOne.white > div > div.construct1 > div.photoInfo{
+         justify-content: space-around;
+         flex-direction: column;
+         display: flex;
+         width: 42%;
+         height: 60%;
+         padding: 0px;
+         background-color: rgba(6, 5, 5, 0.269);
+ 
+     }
+ 
+     body > div.vertical-container > section.section.secOne.white > div > div.construct1 > div.experiences{
+     overflow-y: auto;
+     padding: 5px;
+     padding-top: 30px;
+     color: rgb(79 251 81);
+     flex-direction: column;
+     display: flex;
+     justify-content: center;
+     align-items: center;
+     font-size: 0.4rem;
+     min-height: 70%;
+     height: auto;
+     width: 91%;
+     height: 49%;
+     /* border: 2px solid rgb(79 251 81); */
+     margin: 48px 0 10px 0;
+   }
+
+   body > div.vertical-container > section.section.secOne.white > div > div.construct1 > div.experiences > p{
+    line-height: 0;
+    letter-spacing: 2px;
+    font: 0.8rem sans-serif;
+    align-self: flex-start;
+   }
+
+   body > div.vertical-container > section.section.secOne.white > div > div.construct2{
+    aspect-ratio: 1 / 1;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    width: 80%;
+    min-width: 43%;
+    height: 80%;
+    border: 1px solid rgb(9, 9, 9);
+    background-color: rgb(51, 59, 66);
+    background-image: url(../img/windows-xp-fond-ecran-1024x824.webp);
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    /* background: linear-gradient(145deg, #ffffff, #c1c3c6); */
+    border-radius: 1%;
+    box-shadow: inset 9.91px 9.91px 15px #7bf6ff, inset -9.91px -9.91px 15px #9dc0e2;
+   }
+   body > div.vertical-container > section.section.secOne.white > div > div.construct1::after{
+    position: fixed;
+    top: 3%;
+    right: 85%;
+    left: 12%;
+    content: "__linux:\\ ";
+    width: 2%;
+    height: 5%;
+    margin: 1%;
+    background-image: url(../img/close.svg);
+    background-repeat: no-repeat;
+    margin-bottom: 15px;
+ }
+
+ body > div.vertical-container > section.section.secOne.white > div.content-section-one > div.construct2{
+    border-top: 20px solid black;
+    border-right: 20px solid black;
+    border-left: 20px solid black;
+    border-bottom: 40px solid black;
+    width: 300px;
+    min-width: 20%;
+    margin-right: 15px;
+    height: 60%;
+
+ }
+
+
+}
