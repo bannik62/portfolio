@@ -19,9 +19,9 @@ gsap.to(element, {
       element.appendChild(contentOneChild2);
       let photoNom = document.createElement("div");
       photoNom.classList.add("photoInfo");
-      gsap.to(photoNom, { duration: 2, x: 500, ease: "elastic.out" });
-
-      gsap.to(contentOneChild1, { duration: 3, y: 200, ease: "elastic.out" });
+      
+      gsap.to(contentOneChild1, { duration: 2, y: 200, ease: "Bounce.easeOut" });
+      gsap.to(photoNom, { duration: 4, x: 500,y: 50, ease: "elastic.out" });
 
       let photoAno = document.createElement("img");
       photoAno.classList.add("photo");
@@ -76,7 +76,7 @@ gsap.to(element, {
       function createTerminal() {
         // Créer l'élément principal 'div' avec la classe 'containeInput'
         const container = document.createElement("div");
-        container.classList.add("containeInput", "containerInput");
+        container.classList.add("containeInput");
 
         // Créer la 'div' avec la classe 'inputTerminal'
         const inputTerminal = document.createElement("div");
@@ -165,16 +165,17 @@ gsap.to(element, {
                 break;
 
               case "clear":
-                (function clear() {
-                  let container = document.querySelector(".containeInput");
 
-                  // Supprimer tous les enfants de l'élément container
-                  while (container) {
-                   container.parentNode.removeChild(input);
-                   }
-                })();
+              let nextSibling = terminalLine.nextElementSibling;
+
+        // Supprime tous les frères après .terminalLine
+        while (nextSibling) {
+            const temp = nextSibling; // Stocke le frère actuel
+            nextSibling = nextSibling.nextElementSibling; // Avance au frère suivant
+            temp.remove(); // Supprime le frère stocké
+        }
+
                 break;
-
               default:
                 outputP.textContent = `Commande inconnue : ${inputValue}`;
             }
