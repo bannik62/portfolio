@@ -68,19 +68,45 @@ gsap.to(contentSectionOne, {
                 onComplete: () => {
                   setTimeout(() => {
                     gsap.to(".textbanner", {
+                      opacity: "1",
                       x: "-110%",
                       duration: 1.5,
                       ease: "power2.inOut",
                       onComplete: () => {
-                        textbanner.remove()
-                        // span.remove()
+(
+                        function scrollToTop() {
+                          let scrool = document.querySelector('.construct1');
+                        console.log("scrool", scrool);
+                        
+                          scrool.scrollTo({
+                            top: 500,
+                            behavior: 'smooth' // Scroll fluide vers le haut
+                          });
+                        })()
 
+                        bannerC.textContent = "";
+                      
+                        // Créer le nouvel élément <p> avec l'ID et la classe spécifiés
                         let bannerTextTwo = document.createElement("p");
                         bannerTextTwo.id = "bannerTextTwo";
                         bannerTextTwo.classList.add("bannerTextTwo");
                         bannerTextTwo.textContent =
                           "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, dolores!";
-                        span.appendChild(bannerTextTwo);
+                        bannerC.appendChild(bannerTextTwo);
+                      
+                        // Créer une timeline avec GSAP
+                        let tl = gsap.timeline();
+                      
+                        // Ajouter les animations à la timeline
+                        tl.fromTo(
+                          "#bannerTextTwo", // Sélectionner l'élément par ID
+                          { opacity: 0, scale: 0.5 }, // Valeurs initiales
+                          { opacity: 1, scale: 1, duration: 1, ease: "power2.out" } // Animation pour faire apparaître avec un agrandissement
+                        )
+                        .to(
+                          "#bannerTextTwo", // Sélectionner l'élément par ID
+                          { scale: 0.8, duration: 0.5, ease: "elastic.out(1, 0.5)" } // Animation pour revenir à la taille initiale
+                        );
                       },
                     });
                   }, 4000);
@@ -147,9 +173,9 @@ gsap.to(contentSectionOne, {
       pre.textContent = `                 
                         | | | |    | | |
                         | |_| | ___| | | ___
-                        |  _  |/ _ \ | |/ _ \
+                        |  _  |/ _ \\ | |/ _ \\
                         | | | |  __/ | | (_) |
-                        \_| |_/\___|_|_|\___/            `;
+                       \\_| |_/\\___|_|_|\\___/            `;
 
       contentOneChild1.appendChild(experiences);
       experiences.appendChild(pre);

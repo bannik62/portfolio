@@ -1,4 +1,8 @@
-b {
+
+@import url('https://fonts.googleapis.com/css2?family=Silkscreen:wght@400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
+body {
   margin: 0;
   padding: 0;
   height: 100%;
@@ -32,7 +36,7 @@ canvas {
     width: 100vw;
     display: flex;
     justify-content: flex-start;
-    background-image: url(../img/fond.webp);
+    background-image: url(../img/fondVert.webp);
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -280,6 +284,7 @@ canvas {
         background-color: #4878c08c;
       
         .childBanner{
+          border: 2px solid  green;
           display: flex;
           justify-content: center;
           /* width: 90%;
@@ -292,7 +297,18 @@ canvas {
         }
 
         .textbanner{
+          font-family: "Silkscreen", sans-serif;
+          font-weight: 400;
+          font-style: normal;
           width: 100%;
+          color: #5bc10e;
+          font-size: 2rem;
+        }
+        .bannerTextTwo{
+          font-family: "Bebas Neue", sans-serif;
+          font-weight: 400;
+          font-style: normal;
+                    width: 100%;
           color: #5bc10e;
           font-size: 2rem;
         }
