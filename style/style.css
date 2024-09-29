@@ -271,6 +271,25 @@ canvas {
       background-color: rgba(6, 5, 5, 0.269);
       backdrop-filter: blur(1px);
 
+      .parentBanner{
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        width: 100%;
+        height: 87%;
+        background-color: #4878c08c;
+      
+        .childBanner{
+          width: 90%;
+          height: 90%;
+          background-color: #504b45;
+        }
+
+        .textbanner{
+          color: #5bc10e;
+          font-size: 2rem;
+        }
+      }
 
       .construct1 {
         top: -200px;
