@@ -27,10 +27,50 @@ gsap.to(contentSectionOne, {
         onComplete: () => {
           // Appeler la deuxième animation une fois la première terminée
           gsap.to(photoNom, {
-            duration: 4,
+            duration: 2,
             x: 500,
             y: 50,
-            ease: "elastic.out",
+            ease: "Bounce.out",
+            onComplete: () =>{
+              console.log("complete");
+              let bannerP = document.createElement("div");
+              bannerP.classList.add("parentBanner");
+              bannerP.id ="parentBanner";
+              let bannerC = document.createElement("div")
+              bannerC.classList.add("childBanner");
+              bannerC.id ="childBanner";
+              let txt = null 
+              let textbanner = document.createElement("p");
+              textbanner.classList.add("textbanner")
+              bannerC.setAttribute('animate', '');
+
+              textbanner.textContent = txt || "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, sapiente."
+             
+
+              bannerP.appendChild(bannerC)
+              console.log("contscone :", contentSectionOne);
+              bannerC.appendChild(textbanner)
+              contentSectionOne.appendChild(bannerP)
+
+           
+
+let typeSplit = new SplitType('[animate]', {
+  types: 'lines, words, chars',
+  tagName: 'span'
+})
+
+gsap.from('[animate] .line', {
+  y: '110%',
+  opacity: 1,
+  rotationZ: '10',
+  duration: 0.65,
+  ease: 'bounce.out',
+  stagger: 0.3,
+  
+})
+
+
+            }
           });
         },
       });
@@ -84,7 +124,7 @@ gsap.to(contentSectionOne, {
       let terminalLine = document.createElement("p");
       terminalLine.classList.add("terminalLine");
       terminalLine.innerHTML = `
-// Last login: ${formatDate()} from 37.66.149.120 :</br> </br>  `;
+// Last login: ${formatDate()} from 37.66.149.120 </br> </br>Type help for more information :   `;
 
       let pre = document.createElement("pre");
       pre.classList.add("ascii");
@@ -146,7 +186,7 @@ gsap.to(contentSectionOne, {
             switch (inputValue.toLowerCase()) {
               case "help":
                 outputP.textContent =
-                  "Liste des commandes : \n help, exit, ssh, hack";
+                  "Liste des commandes : \n help,\nexit,\n ssh,\n hack,\n windows";
                 break;
 
               case "exit":
@@ -201,8 +241,10 @@ gsap.to(contentSectionOne, {
                 }
 
                 break;
-
-              case "windows -start":
+               case "windows":
+                outputP.textContent ="type windows --start"
+               break
+              case "windows --start":
                 // Animation GSAP sur l'élément wload
                 const wload = document.getElementById("loadW");
                 const soundEffect = document.getElementById('soundEffect');
@@ -289,8 +331,6 @@ gsap.to(contentSectionOne, {
 
         // Création de la balise <a> avec un href="#"
         let link = document.createElement("a");
-        link.classList.add(scroll - link);
-        console.log(scroll, "&", link);
 
         link.href = `#${pathRessources[i]}`; // Utilise # comme lien par défaut
         link.appendChild(clone); // Ajoute le clone à l'intérieur du lien

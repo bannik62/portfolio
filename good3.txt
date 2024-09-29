@@ -1,0 +1,19 @@
+<script src="https://unpkg.com/split-type"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.11.4/gsap.min.js"></script>
+
+<script>
+let typeSplit = new SplitType('[animate]', {
+  types: 'lines, words, chars',
+  tagName: 'span'
+})
+
+gsap.from('[animate] .line', {
+  y: '110%',
+  opacity: 1,
+  rotationZ: '10',
+  duration: 0.65,
+  ease: 'bounce.out',
+  stagger: 0.3,
+  
+})
+</script>
