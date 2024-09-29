@@ -425,6 +425,7 @@ canvas {
         width: 450px;
         min-width: 40%;
         height: 80%;
+        right: -800px;
         /* border: 1px solid rgb(9, 9, 9); */
         background-color: rgb(51, 59, 66);
         background-image: url(../img/windows-xp-fond-ecran-1024x824.webp);
@@ -435,6 +436,16 @@ canvas {
         border-radius: 3%;
         box-shadow: inset 9.91px 9.91px 15px #7bf6ff,
           inset -9.91px -9.91px 15px #9dc0e2;
+          
+          .loadW{
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #1b1a1a;
+            z-index: 1000;
+          }
 
         .windows-path {
         background-image: url(../img/Windows-01_27087.png);
