@@ -2,9 +2,9 @@ import { formatDate } from "./scriptTools.mjs";
 
 console.log("hi !!");
 gsap.registerPlugin(ScrollTrigger);
-const element = document.querySelector(".content-section-one");
+const contentSectionOne = document.querySelector(".content-section-one");
 
-gsap.to(element, {
+gsap.to(contentSectionOne, {
   duration: 1.3, // Durée de l'animation en secondes
   height: "55%", // Hauteur finale en pourcentage du conteneur
   ease: "power1.inOut",
@@ -12,16 +12,42 @@ gsap.to(element, {
     setTimeout(() => {
       let contentOneChild1 = document.createElement("div");
       contentOneChild1.classList.add("construct1");
-      element.appendChild(contentOneChild1);
+      contentSectionOne.appendChild(contentOneChild1);
 
       let contentOneChild2 = document.createElement("div");
       contentOneChild2.classList.add("construct2");
-      element.appendChild(contentOneChild2);
+      contentSectionOne.appendChild(contentOneChild2);
       let photoNom = document.createElement("div");
       photoNom.classList.add("photoInfo");
-      
-      gsap.to(contentOneChild1, { duration: 2, y: 200, ease: "Bounce.easeOut" });
-      gsap.to(photoNom, { duration: 4, x: 500,y: 50, ease: "elastic.out" });
+
+      gsap.to(contentOneChild1, {
+        duration: 2,
+        y: 200,
+        ease: "Bounce.easeOut",
+        onComplete: () => {
+          // Appeler la deuxième animation une fois la première terminée
+          gsap.to(photoNom, {
+            duration: 4,
+            x: 500,
+            y: 50,
+            ease: "elastic.out",
+          });
+        },
+      });
+
+      gsap.to(contentOneChild2, {
+        duration: 2,
+        x: -800,
+        ease: "linear",
+        onstart: () => {
+          console.log("start");
+
+          let startblack = document.createElement("div");
+          startblack.classList.add("loadW");
+          startblack.id = "loadW";
+          contentOneChild2.appendChild(startblack);
+        },
+      });
 
       let photoAno = document.createElement("img");
       photoAno.classList.add("photo");
@@ -165,17 +191,54 @@ gsap.to(element, {
                 break;
 
               case "clear":
+                let nextSibling = terminalLine.nextElementSibling;
 
-              let nextSibling = terminalLine.nextElementSibling;
-
-        // Supprime tous les frères après .terminalLine
-        while (nextSibling) {
-            const temp = nextSibling; // Stocke le frère actuel
-            nextSibling = nextSibling.nextElementSibling; // Avance au frère suivant
-            temp.remove(); // Supprime le frère stocké
-        }
+                // Supprime tous les frères après .terminalLine
+                while (nextSibling) {
+                  const temp = nextSibling; // Stocke le frère actuel
+                  nextSibling = nextSibling.nextElementSibling; // Avance au frère suivant
+                  temp.remove(); // Supprime le frère stocké
+                }
 
                 break;
+
+              case "windows -start":
+                // Animation GSAP sur l'élément wload
+                const wload = document.getElementById("loadW");
+                const soundEffect = document.getElementById('soundEffect');
+                soundEffect.volume = 0.1;
+                // 1. Clignotement rapide du fond de noir à blanc, en partant du centre (effet de cercle)
+                gsap.to(wload, {
+                  duration: 0.5,
+                  backgroundColor: "white",
+                  scale: 1, // Part du centre
+                  // borderRadius: "50%",
+                  opacity: 1,
+                  repeat: 1, // Clignote 5 fois
+                  yoyo: true,
+                  ease: "power1.inOut",
+                  onUpdate:()=>{
+                    // contentOneChild2.style.opacity = "0"
+                  },
+                  onComplete: () => {
+                    // 2. Après le clignotement, définir "bios.webp" comme background
+                    wload.style.backgroundImage = 'url("../img/bios.webp")';
+                    wload.style.backgroundSize = "cover";
+
+                    // 3. Après 3 secondes, changer le fond en "windows.webp"
+                    setTimeout(() => {
+                      wload.style.backgroundImage = 'url("../img/windows.webp")';
+
+                      // 4. Après encore 3 secondes, retirer la div et jouer un son
+                      setTimeout(() => {
+                        soundEffect.play(); // Jouer le son
+                        wload.remove(); // Supprimer l'élément wload
+                      }, 3000); // 3 secondes avant de retirer la div
+                    }, 3000); // 3 secondes après bios.webp
+                  },
+                });
+                break;
+
               default:
                 outputP.textContent = `Commande inconnue : ${inputValue}`;
             }
