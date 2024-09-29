@@ -33,39 +33,4 @@ let amplitude = 50; // Amplitude initiale
 let frequency = 0.02; // Fréquence initiale
 
 // Fonction pour dessiner l'oscilloscope
-function drawOscilloscope() {
-    // Effacer le canvas
-    ctx.fillStyle = backgroundColor;
-    ctx.fillRect(0, 0, canvas.width, canvas.height);
-
-    ctx.beginPath();
-    ctx.strokeStyle = lineColor;
-    ctx.lineWidth = 2;
-
-    const centerY = canvas.height / 2;
-
-    // Dessiner la ligne d'oscillation avec modulation
-    for (let x = 0; x < canvas.width; x++) {
-        // Modulation de l'amplitude
-        const modulatedAmplitude = amplitude * (1 + Math.sin((time + x) * 0.01)); // Variation d'amplitude
-        const y = centerY + modulatedAmplitude * Math.sin((x + time) * frequency); // Fonction sinus
-        ctx.lineTo(x, y);
-    }
-
-    ctx.stroke();
-    ctx.closePath();
-
-    // Incrémenter le temps pour faire défiler l'oscillation
-    time += 2;
-
-    // Modulation de la fréquence
-    frequency += 0.0001; // Variation de fréquence au fil du temps
-
-    // Modulation de la couleur
-    // lineColor = `hsl(${(time * 0.5) % 360}, 100%, 50%)`; // Changer la couleur en utilisant HSL
-
-    requestAnimationFrame(drawOscilloscope); // Demander le prochain cadre
-}
-
-// Commencer le dessin
-drawOscilloscope();
+// 
