@@ -280,12 +280,19 @@ canvas {
         background-color: #4878c08c;
       
         .childBanner{
-          width: 90%;
-          height: 90%;
-          background-color: #504b45;
+          display: flex;
+          justify-content: center;
+          /* width: 90%;
+          height: auto; */
+          background-color: #1e221e;
+          border-radius: 10px;
+          overflow: hidden;
+          padding: 3%;
+          /* opacity: 0; */
         }
 
         .textbanner{
+          width: 100%;
           color: #5bc10e;
           font-size: 2rem;
         }
