@@ -31,46 +31,62 @@ gsap.to(contentSectionOne, {
             x: 500,
             y: 50,
             ease: "Bounce.out",
-            onComplete: () =>{
+            onComplete: () => {
               console.log("complete");
               let bannerP = document.createElement("div");
               bannerP.classList.add("parentBanner");
-              bannerP.id ="parentBanner";
-              let bannerC = document.createElement("div")
+              bannerP.id = "parentBanner";
+              let bannerC = document.createElement("div");
               bannerC.classList.add("childBanner");
-              bannerC.id ="childBanner";
-              let txt = null 
+              bannerC.id = "childBanner";
+              let txt = null;
               let textbanner = document.createElement("p");
-              textbanner.classList.add("textbanner")
-              bannerC.setAttribute('animate', '');
+              textbanner.classList.add("textbanner");
+              bannerC.setAttribute("animate", "");
 
-              textbanner.textContent = txt || "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, sapiente."
-             
+              textbanner.textContent =
+                txt ||
+                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, sapiente.";
 
-              bannerP.appendChild(bannerC)
-              console.log("contscone :", contentSectionOne);
-              bannerC.appendChild(textbanner)
-              contentSectionOne.appendChild(bannerP)
+              bannerP.appendChild(bannerC);
+              console.log("contsecone :", contentSectionOne);
+              bannerC.appendChild(textbanner);
+              contentSectionOne.appendChild(bannerP);
 
-           
+              new SplitType("[animate]", {
+                types: "lines, words, chars",
+                tagName: "span",
+              });
 
-let typeSplit = new SplitType('[animate]', {
-  types: 'lines, words, chars',
-  tagName: 'span'
-})
+              gsap.from("[animate] .word", {
+                y: "300px",
+                opacity: 1,
+                rotationZ: "10",
+                duration: 1,
+                ease: "bounce.out",
+                stagger: 0.3,
+                onComplete: () => {
+                  setTimeout(() => {
+                    gsap.to(".textbanner", {
+                      x: "-110%",
+                      duration: 1.5,
+                      ease: "power2.inOut",
+                      onComplete: () => {
+                        textbanner.remove()
+                        // span.remove()
 
-gsap.from('[animate] .line', {
-  y: '110%',
-  opacity: 1,
-  rotationZ: '10',
-  duration: 0.65,
-  ease: 'bounce.out',
-  stagger: 0.3,
-  
-})
-
-
-            }
+                        let bannerTextTwo = document.createElement("p");
+                        bannerTextTwo.id = "bannerTextTwo";
+                        bannerTextTwo.classList.add("bannerTextTwo");
+                        bannerTextTwo.textContent =
+                          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, dolores!";
+                        span.appendChild(bannerTextTwo);
+                      },
+                    });
+                  }, 4000);
+                },
+              });
+            },
           });
         },
       });
@@ -151,7 +167,7 @@ gsap.from('[animate] .line', {
         // Créer le paragraphe avec la classe 'prompt' et son contenu
         const prompt = document.createElement("p");
         prompt.classList.add("prompt");
-        prompt.textContent = "devSecOpS@kali :";
+        prompt.textContent = "C:\\Users\\user\\Desktop>:";
 
         // Créer l'input de type 'text'
         const input = document.createElement("input");
@@ -241,13 +257,13 @@ gsap.from('[animate] .line', {
                 }
 
                 break;
-               case "windows":
-                outputP.textContent ="type windows --start"
-               break
+              case "windows":
+                outputP.textContent = "type windows --start";
+                break;
               case "windows --start":
                 // Animation GSAP sur l'élément wload
                 const wload = document.getElementById("loadW");
-                const soundEffect = document.getElementById('soundEffect');
+                const soundEffect = document.getElementById("soundEffect");
                 soundEffect.volume = 0.1;
                 // 1. Clignotement rapide du fond de noir à blanc, en partant du centre (effet de cercle)
                 gsap.to(wload, {
@@ -259,7 +275,7 @@ gsap.from('[animate] .line', {
                   repeat: 1, // Clignote 5 fois
                   yoyo: true,
                   ease: "power1.inOut",
-                  onUpdate:()=>{
+                  onUpdate: () => {
                     // contentOneChild2.style.opacity = "0"
                   },
                   onComplete: () => {
@@ -269,7 +285,8 @@ gsap.from('[animate] .line', {
 
                     // 3. Après 3 secondes, changer le fond en "windows.webp"
                     setTimeout(() => {
-                      wload.style.backgroundImage = 'url("../img/windows.webp")';
+                      wload.style.backgroundImage =
+                        'url("../img/windows.webp")';
 
                       // 4. Après encore 3 secondes, retirer la div et jouer un son
                       setTimeout(() => {

@@ -7,9 +7,9 @@ let typeSplit = new SplitType('[animate]', {
   tagName: 'span'
 })
 
-gsap.from('[animate] .line', {
+gsap.from('[animate] .word', {
   y: '110%',
-  opacity: 1,
+  opacity: 0,
   rotationZ: '10',
   duration: 0.65,
   ease: 'bounce.out',
