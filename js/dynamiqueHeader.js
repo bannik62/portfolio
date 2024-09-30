@@ -239,7 +239,7 @@ gsap.to(contentSectionOne, {
                 outputP.textContent = `type your  name@domain.extension `;
                 break;
 
-              case "hack":
+              case "hack --start":
                 (function hack() {
                   let terminal = document.querySelector(
                     ".containerEmuleTerminal"
@@ -255,7 +255,8 @@ gsap.to(contentSectionOne, {
                   );
                 })();
                 break;
-              case "hack -exit":
+            
+              case "hack --exit":
                 (function exit() {
                   let terminal = document.querySelector(
                     ".containerEmuleTerminal"
@@ -283,10 +284,12 @@ gsap.to(contentSectionOne, {
                 }
 
                 break;
-              case "windows":
+             
+                case "windows":
                 outputP.textContent = "type windows --start";
                 break;
-              case "windows --start":
+             
+                case "windows --start":
                 // Animation GSAP sur l'élément wload
                 const wload = document.getElementById("loadW");
                 const soundEffect = document.getElementById("soundEffect");
