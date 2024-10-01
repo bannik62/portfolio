@@ -29,6 +29,7 @@ canvas {
   /* Support Webkit */
   height: 100vh;
   overflow-y: scroll;
+  
 
   .secOne {
     position: relative;
@@ -281,9 +282,10 @@ canvas {
         display: flex;
         width: 100%;
         height: 87%;
-        background-color: #4878c08c;
+        background-color: #38469b8c;
       
         .childBanner{
+          width: 100%;
           border: 2px solid  green;
           display: flex;
           justify-content: center;
@@ -310,7 +312,7 @@ canvas {
           font-style: normal;
                     width: 100%;
           color: #901ce9;
-          font-size: 2rem;
+          font-size: 3rem;
         }
       }
 
