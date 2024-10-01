@@ -46,13 +46,22 @@ gsap.to(contentSectionOne, {
 
               textbanner.textContent =
                 txt ||
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, sapiente.";
+                "Bienvenue dans simul-OS ,le site web avec un design innovant avec une navigation repensé!";
+                ;
 
               bannerP.appendChild(bannerC);
               console.log("contsecone :", contentSectionOne);
               bannerC.appendChild(textbanner);
               contentSectionOne.appendChild(bannerP);
-
+              gsap.to(bannerP, {
+                backgroundColor: '#a248c075', // Couleur transparente
+                duration: 2, // Durée de l'animation
+                yoyo: true, // Revenir à la valeur initiale
+                repeat: -1, // Répéter indéfiniment
+                ease: "power1.inOut" // Type d'animation
+              });
+            
+            
               new SplitType("[animate]", {
                 types: "lines, words, chars",
                 tagName: "span",
@@ -91,20 +100,20 @@ gsap.to(contentSectionOne, {
                         bannerTextTwo.id = "bannerTextTwo";
                         bannerTextTwo.classList.add("bannerTextTwo");
                         bannerTextTwo.textContent =
-                          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, dolores!";
+                          "C !";
                         bannerC.appendChild(bannerTextTwo);
                       
                         // Créer une timeline avec GSAP
-                        let tl = gsap.timeline();
+                        let bannerTxt = gsap.timeline();
                       
                         // Ajouter les animations à la timeline
-                        tl.fromTo(
-                          "#bannerTextTwo", // Sélectionner l'élément par ID
+                        bannerTxt.fromTo(
+                          "#bannerTextTwo", 
                           { opacity: 0, scale: 0.5 }, // Valeurs initiales
                           { opacity: 1, scale: 1, duration: 1, ease: "power2.out" } // Animation pour faire apparaître avec un agrandissement
                         )
                         .to(
-                          "#bannerTextTwo", // Sélectionner l'élément par ID
+                          "#bannerTextTwo", 
                           { scale: 0.8, duration: 0.5, ease: "elastic.out(1, 0.5)" } // Animation pour revenir à la taille initiale
                         );
                       },
