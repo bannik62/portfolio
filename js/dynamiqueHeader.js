@@ -46,12 +46,41 @@ gsap.to(contentSectionOne, {
 
               textbanner.textContent =
                 txt ||
-                "Lorem ipsum dolor sit amet consectetur adipisicing elit. Ea, sapiente.";
-
+                "Bienvenue dans simul-OS ,le site web avec un design innovant avec une navigation repensé!";
               bannerP.appendChild(bannerC);
               console.log("contsecone :", contentSectionOne);
               bannerC.appendChild(textbanner);
-              contentSectionOne.appendChild(bannerP);
+              contentSectionOne.append(bannerP);
+              bannerP.style.opacity = "0";
+             
+              const tl = gsap.timeline();
+
+              // Première étape : changer la hauteur, l'opacité et le z-index
+              // tl.to(bannerP, {
+              //   height:0,
+              //   opacity: 0.2,
+              //   duration: 1,
+              //   zIndex: -5,
+              // });
+              
+              // Deuxième étape : rétablir le z-index et l'opacité à 1
+              tl.to(bannerP, {
+                height: "300px",
+                zIndex: 2,
+                opacity:1,
+                duration: 1, // Ajout d'une durée pour la transition fluide
+              });
+              
+              // Troisième étape : changer la couleur de fond avec transparence, et répéter à l'infini
+              tl.to(bannerP, {
+                // opacity: 1,
+                backgroundColor: "#a248c075", // Couleur avec transparence
+                duration: 2, // Durée de l'animation
+                yoyo: true, // Revenir à la valeur initiale
+                repeat: -1, // Répéter indéfiniment
+                ease: "power1.inOut", // Type d'animation
+              });
+              
 
               new SplitType("[animate]", {
                 types: "lines, words, chars",
@@ -71,42 +100,51 @@ gsap.to(contentSectionOne, {
                       opacity: "1",
                       x: "-110%",
                       duration: 1.5,
-                      ease: "power2.inOut",
+                      ease: "lienear.inOut",
                       onComplete: () => {
-(
-                        function scrollToTop() {
-                          let scrool = document.querySelector('.construct1');
-                        console.log("scrool", scrool);
-                        
+                        (function scrollToTop() {
+                          let scrool = document.querySelector(".construct1");
+                          console.log("scrool", scrool);
+
                           scrool.scrollTo({
                             top: 500,
-                            behavior: 'smooth' // Scroll fluide vers le haut
+                            behavior: "smooth", // Scroll fluide vers le haut
                           });
-                        })()
+                        })();
 
                         bannerC.textContent = "";
-                      
+
                         // Créer le nouvel élément <p> avec l'ID et la classe spécifiés
                         let bannerTextTwo = document.createElement("p");
                         bannerTextTwo.id = "bannerTextTwo";
                         bannerTextTwo.classList.add("bannerTextTwo");
                         bannerTextTwo.textContent =
-                          "Lorem ipsum dolor sit amet consectetur adipisicing elit. Beatae, dolores!";
+                          "C'est partie pour la decouverte des fonctionalité de nvigation hybrid  !";
                         bannerC.appendChild(bannerTextTwo);
-                      
+
                         // Créer une timeline avec GSAP
-                        let tl = gsap.timeline();
-                      
+                        let bannerTxt = gsap.timeline();
+
                         // Ajouter les animations à la timeline
-                        tl.fromTo(
-                          "#bannerTextTwo", // Sélectionner l'élément par ID
-                          { opacity: 0, scale: 0.5 }, // Valeurs initiales
-                          { opacity: 1, scale: 1, duration: 1, ease: "power2.out" } // Animation pour faire apparaître avec un agrandissement
-                        )
-                        .to(
-                          "#bannerTextTwo", // Sélectionner l'élément par ID
-                          { scale: 0.8, duration: 0.5, ease: "elastic.out(1, 0.5)" } // Animation pour revenir à la taille initiale
-                        );
+                        bannerTxt
+                          .fromTo(
+                            "#bannerTextTwo",
+                            { opacity: 0, scale: 0.5 }, // Valeurs initiales
+                            {
+                              opacity: 1,
+                              scale: 1,
+                              duration: 1,
+                              ease: "power2.out",
+                            } // Animation pour faire apparaître avec un agrandissement
+                          )
+                          .to(
+                            "#bannerTextTwo",
+                            {
+                              scale: 0.8,
+                              duration: 0.5,
+                              ease: "elastic.out(1, 0.5)",
+                            } // Animation pour revenir à la taille initiale
+                          );
                       },
                     });
                   }, 4000);
@@ -294,7 +332,12 @@ gsap.to(contentSectionOne, {
                 const wload = document.getElementById("loadW");
                 const soundEffect = document.getElementById("soundEffect");
                 soundEffect.volume = 0.1;
-                // 1. Clignotement rapide du fond de noir à blanc, en partant du centre (effet de cercle)
+                // Définir le box-shadow
+                contentOneChild2.style.boxShadow =
+                  "20px 20px 60px #bebebe, 0px -20px 60px #ffffff";
+
+                contentOneChild2.style.borderRadius = "50px";
+
                 gsap.to(wload, {
                   duration: 0.5,
                   backgroundColor: "white",
@@ -311,14 +354,19 @@ gsap.to(contentSectionOne, {
                     // 2. Après le clignotement, définir "bios.webp" comme background
                     wload.style.backgroundImage = 'url("../img/bios.webp")';
                     wload.style.backgroundSize = "cover";
+                    contentOneChild2.style.boxShadow =
+                      "5px 20px 60px #bebebe, 5px -20px 60px #ffffff";
 
                     // 3. Après 3 secondes, changer le fond en "windows.webp"
                     setTimeout(() => {
                       wload.style.backgroundImage =
                         'url("../img/windows.webp")';
-
+                      contentOneChild2.style.boxShadow =
+                        "10px 20px 60px #bebebe, 15px -20px 60px #ffffff";
                       // 4. Après encore 3 secondes, retirer la div et jouer un son
                       setTimeout(() => {
+                        contentOneChild2.style.boxShadow =
+                          "20px 20px 60px #bebebe, 0px -20px 60px #ffffff";
                         soundEffect.play(); // Jouer le son
                         wload.remove(); // Supprimer l'élément wload
                       }, 3000); // 3 secondes avant de retirer la div
