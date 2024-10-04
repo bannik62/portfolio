@@ -28,7 +28,7 @@ gsap.to(contentSectionOne, {
           // Appeler la deuxième animation une fois la première terminée
           gsap.to(photoNom, {
             duration: 2,
-            x: 500,
+            x: 900,
             y: 50,
             ease: "Bounce.out",
             onComplete: () => {
@@ -79,7 +79,7 @@ gsap.to(contentSectionOne, {
                         console.log("scrool", scrool);
                         
                           scrool.scrollTo({
-                            top: 500,
+                            top: 700,
                             behavior: 'smooth' // Scroll fluide vers le haut
                           });
                         })()
@@ -109,7 +109,7 @@ gsap.to(contentSectionOne, {
                         );
                       },
                     });
-                  }, 4000);
+                  }, 2000);
                 },
               });
             },

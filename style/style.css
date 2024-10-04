@@ -53,14 +53,16 @@ canvas {
       margin-bottom: 15px;
     }
     .content-section-one::after {
+      justify-content: space-around;
+      display: flex;
       color: #1b1a1a;
       z-index: 1;
-      position: fixed;
-      top: 3%;
-      right: 91%;
+      position: absolute;
+      top: 2%;
+      right: 92%;
       left: 5%;
-      content: "__linux:\\ ";
-      width: 2%;
+      content: "CMD ";
+      width: 6%;
       height: 5%;
       margin: 0.5%;
       background-image: url(../img/close.svg);
@@ -353,7 +355,7 @@ canvas {
             z-index: 2;
             position: relative;
             top: -50px;
-            left: -500px;
+            left: -900px;
             width: 100%;
             display: flex;
             justify-content: space-around;
