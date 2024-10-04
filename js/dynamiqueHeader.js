@@ -109,11 +109,9 @@ gsap.to(contentSectionOne, {
                           scrool.scrollTo({
 <<<<<<< HEAD
                             top: 700,
-                            behavior: 'smooth' // Scroll fluide vers le haut
-=======
-                            top: 500,
-                            behavior: "smooth", // Scroll fluide vers le haut
->>>>>>> 58f0780a8efb104a1cdade2fa1ad6de4c4a9c62b
+                            behavior: 'smooth' ,
+                        behavior: "smooth", 
+>>>>>>> 
                           });
                         })();
 
